@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npx nx run-many --target dev --parallel 2 --verbose",
     "prepare": "husky",
     "commit": "npx cz"
   },
