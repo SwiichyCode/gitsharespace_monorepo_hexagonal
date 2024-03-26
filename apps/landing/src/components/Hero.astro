@@ -1,7 +1,8 @@
 ---
 import { Image } from "astro:assets";
-import CTARepositories from "../components/CTARepositories.astro";
-import { getLangFromUrl, useTranslations } from "../i18n/utils";
+import { getLangFromUrl, useTranslations } from "@i18n/utils";
+import CTARepositories from "@components/CTARepositories.astro";
+import SentryButton from "@components/SentryButton.astro";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -32,6 +33,7 @@ const t = useTranslations(lang);
         </p>
         <div class="mt-10 flex items-center justify-center gap-x-6">
           <CTARepositories text={t("hero.cta")} />
+          <SentryButton />
           <a href="#faqs" class="text-sm font-semibold leading-6 text-white">
             {t("hero.faqs")}
             <span aria-hidden="true">→</span>
