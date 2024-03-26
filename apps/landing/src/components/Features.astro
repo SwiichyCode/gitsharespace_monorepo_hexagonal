@@ -1,0 +1,81 @@
+---
+import { getLangFromUrl, useTranslations } from "@i18n/utils";
+import Icon from "./Icon.astro";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const features = [
+  {
+    name: t("feature.repository&sharing.title"),
+    description: t("feature.repository&sharing.description"),
+    icon: "book-plus",
+  },
+
+  {
+    name: t("feature.discover.title"),
+    description: t("feature.discover.description"),
+    icon: "search",
+  },
+
+  {
+    name: t("feature.like&comment.title"),
+    description: t("feature.like&comment.description"),
+    icon: "message_square_heart",
+  },
+
+  {
+    name: t("feature.follow&developers.title"),
+    description: t("feature.follow&developers.description"),
+    icon: "user-plus",
+  },
+
+  {
+    name: t("feature.user&profile.title"),
+    description: t("feature.user&profile.description"),
+    icon: "user-search",
+  },
+
+  {
+    name: t("feature.kanban.title"),
+    description: t("feature.kanban.description"),
+    icon: "list-checks",
+  },
+];
+---
+
+<div class="bg-layout py-24 text-default sm:py-32">
+  <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <div class="mx-auto max-w-2xl lg:text-center">
+      <p class="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">
+        Discover, Share, and Connect Like Never Before
+      </p>
+      <p class="mt-6 text-lg leading-8">
+        GitShareSpace offers a gateway to discovering, sharing, and connecting
+        with the vibrant GitHub community. Our platform is dedicated to
+        streamlining GitHub collaboration, ensuring it&apos;s seamless and
+        engaging for developers worldwide. Join us in revolutionizing how you
+        interact with GitHub repositories.
+      </p>
+    </div>
+    <div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
+      <dl
+        class="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16"
+      >
+        {
+          features.map((feature) => (
+            <div class="relative pl-16">
+              <dt class="text-base font-semibold leading-7">
+                <div class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-600">
+                  <Icon icon={feature.icon} />
+                </div>
+                {feature.name}
+              </dt>
+              <dd class="mt-2 text-base leading-7">{feature.description}</dd>
+            </div>
+          ))
+        }
+      </dl>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,85 @@
+---
+import Logo from "@components/Logo.astro";
+import Icon from "@components/Icon.astro";
+import { URL } from "configs/constants/urls";
+
+const navigation = {
+  social: [
+    {
+      name: "GitHub",
+      url: URL.GITHUB,
+      icon: "github",
+    },
+
+    {
+      name: "LinkedIn",
+      url: URL.LINKEDIN,
+      icon: "linkedin",
+    },
+
+    {
+      name: "Twitter",
+      url: URL.TWITTER,
+      icon: "twitter",
+    },
+  ],
+
+  languages: [
+    {
+      name: "English",
+      url: URL.LANDING_EN,
+    },
+
+    {
+      name: "Français",
+      url: URL.LANDING_FR,
+    },
+  ],
+};
+---
+
+<footer class="bg-layout" aria-labelledby="footer-heading">
+  <h2 id="footer-heading" class="sr-only">Footer</h2>
+  <div class="mx-auto max-w-7xl px-6 pb-8 pt-16 sm:pt-24 lg:px-8 lg:pt-32">
+    <div class="xl:grid xl:grid-cols-3 xl:gap-8">
+      <div class="space-y-8">
+        <Logo />
+        <p class="text-sm leading-6 text-gray-300">
+          Making the world a better place through constructing elegant
+          hierarchies.
+        </p>
+        <div class="flex space-x-6">
+          {
+            navigation.social.map((item) => (
+              <a href={item.url} class="text-gray-500 hover:text-gray-400">
+                <span class="sr-only">{item.name}</span>
+                <Icon icon={item.icon} aria-hidden="true" />
+              </a>
+            ))
+          }
+        </div>
+        <div class="flex flex-col gap-4">
+          {
+            navigation.languages.map((item) => (
+              <a
+                href={item.url}
+                class="text-sm leading-6 text-gray-300 font-semibold underline"
+              >
+                {item.name}
+              </a>
+            ))
+          }
+        </div>
+      </div>
+      <div class="mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
+        <div class="md:grid md:grid-cols-2 md:gap-8"></div>
+        <div class="md:grid md:grid-cols-2 md:gap-8"></div>
+      </div>
+    </div>
+    <div class="mt-16 border-t border-white/10 pt-8 sm:mt-20 lg:mt-24">
+      <p class="text-xs leading-5 text-gray-400">
+        &copy; 2024 SwiichyCode, Inc. All rights reserved.
+      </p>
+    </div>
+  </div>
+</footer>
