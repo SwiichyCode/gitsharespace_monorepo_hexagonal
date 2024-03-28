@@ -1,7 +1,6 @@
 import { defineConfig } from "astro/config";
 import tailwind from "@astrojs/tailwind";
 import icon from "astro-icon";
-
 import sentry from "@sentry/astro";
 
 // https://astro.build/config
@@ -16,6 +15,7 @@ export default defineConfig({
       sourceMapsUploadOptions: {
         project: "gitsharespace_landing",
         authToken: import.meta.env.SENTRY_AUTH_TOKEN,
+        telemetry: false,
       },
     }),
   ],

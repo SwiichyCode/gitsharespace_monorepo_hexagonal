@@ -15,7 +15,7 @@
     "@sentry/astro": "^7.108.0",
     "astro": "^4.5.9",
     "astro-icon": "^1.1.0",
-    "configs": "workspace:^",
+    "@packages/configs": "workspace:^",
     "tailwindcss": "^3.4.1",
     "typescript": "^5.4.3"
   }
